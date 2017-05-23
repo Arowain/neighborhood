@@ -18,6 +18,10 @@
     <div class="options-box">
       <h1>Neighborhood</h1>
       <hr>
+      <div>
+        <input/>
+      </div>
+
       <h3>List</h3>
       <!--<input type="search" data-bind="value: query, valueUpdate: 'keyup'">-->
       <div id="List" data-bind="visible: showList">
@@ -25,11 +29,7 @@
           <!-- http://knockoutjs.com/documentation/click-binding.html#note-1-passing-a-current-item-as-a-parameter-to-your-handler-function -->
           <li class="list-items" data-bind="text: title, click: $root.pointMarker"></li>
         </ul>
-        <hr>
 
-        <div>
-          <input/>
-        </div>
       </div>
       <div id="map"></div>
     </div>
