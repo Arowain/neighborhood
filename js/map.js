@@ -164,7 +164,7 @@ function initMap() {
         });
         // put marker in marker's array.
         markers.push(marker);
-        //viewModel.myLocations()[i].marker = marker;
+        viewModel.myLocations()[i].marker = marker;
 
         // Extend boundries of map
         bounds.extend(marker.position);
