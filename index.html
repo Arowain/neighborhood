@@ -19,11 +19,13 @@
       <h1>Neighborhood</h1>
       <hr>
       <div>
-        <input/>
+        <form action="#">
+          <input placeholder="Search…" type="search" data-bind="value: query, valueUpdate: 'keyup'" >
+        </form>
+
       </div>
 
       <h3>List</h3>
-      <!--<input type="search" data-bind="value: query, valueUpdate: 'keyup'">-->
       <div id="List" data-bind="visible: showList">
         <ul data-bind="foreach: myLocations">
           <!-- http://knockoutjs.com/documentation/click-binding.html#note-1-passing-a-current-item-as-a-parameter-to-your-handler-function -->
