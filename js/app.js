@@ -22,9 +22,10 @@ var viewModel = {
     for(var x in locations) {
       if(locations[x].title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
         viewModel.myLocations()[x].visible(true);
-        viewModel.myLocations.push(locations[x]);
+        viewModel.myLocations()[x].marker.setVisible(true);
       } else {
           viewModel.myLocations()[x].visible(false);
+          viewModel.myLocations()[x].marker.setVisible(false);
       }
     }
   }

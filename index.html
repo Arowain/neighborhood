@@ -30,7 +30,7 @@
       <div id="List" data-bind="visible: showList">
         <ul data-bind="foreach: myLocations">
           <!-- http://knockoutjs.com/documentation/click-binding.html#note-1-passing-a-current-item-as-a-parameter-to-your-handler-function -->
-          <li class="list-items" data-bind="text: title, visible: visible click: $root.pointMarker"></li>
+          <li class="list-items" data-bind="text: title, visible: visible, click: $root.pointMarker"></li>
         </ul>
 
       </div>
