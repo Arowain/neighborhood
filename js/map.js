@@ -23,6 +23,20 @@ var locations = [{
             lat: 24.787905,
             lng: 46.615439
         }
+    },
+    {
+        title: 'Krispy Kreme',
+        location: {
+            lat: 24.785107,
+            lng: 46.613703
+        }
+    },
+    {
+        title: 'Jotun Multicolor Center',
+        location: {
+            lat: 24.787010,
+            lng: 46.613737
+        }
     }
 
 ];
@@ -150,7 +164,7 @@ function initMap() {
         });
         // put marker in marker's array.
         markers.push(marker);
-        viewModel.myLocations()[i].marker = marker;
+        //viewModel.myLocations()[i].marker = marker;
 
         // Extend boundries of map
         bounds.extend(marker.position);
