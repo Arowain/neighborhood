@@ -10,14 +10,25 @@ var viewModel = {
     google.maps.event.trigger(data.marker, 'click');
     },
 
+    addVisible: function() {
+      viewModel.myLocations().forEach(function(location) {
+        location.visible = ko.observable(true);
+      });
+    },
+
+
     search: function(value) {
     viewModel.shouldShowMessage(false)
     for(var x in locations) {
       if(locations[x].title.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+        viewModel.myLocations()[x].visible(true);
         viewModel.myLocations.push(locations[x]);
+      } else {
+          viewModel.myLocations()[x].visible(false);
       }
     }
   }
 };
+viewModel.addVisible();
 viewModel.query.subscribe(viewModel.search);
 ko.applyBindings(viewModel);
