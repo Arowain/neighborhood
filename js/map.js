@@ -1,10 +1,10 @@
 var map;
-
+var largeInfowindow;
 var markers = [];
 
 // My locations
 var locations = [{
-        title: 'Hardees AlAqiq',
+        title: 'Hardees',
         location: {
             lat: 24.785343,
             lng: 46.613465
@@ -138,7 +138,7 @@ function initMap() {
         mapTypeControl: true
     });
 
-    var largeInfowindow = new google.maps.InfoWindow();
+    largeInfowindow = new google.maps.InfoWindow();
 
     // Style the markers
     var defaultIcon = makeMarkerIcon('00ff00');
@@ -229,7 +229,7 @@ function fetchArticle(marker){
 
     var wikiRequestTimeout = setTimeout(function(){
         alert("cannot get wiki information!");
-    },2000);
+    },1000);
 
     $.ajax({
         url: wikiurl,
