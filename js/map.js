@@ -188,21 +188,21 @@ function initMap() {
 }
 
 // This function populates the infowindow when the marker is clicked.
-function populateInfoWindow(marker, infowindow) {
+function populateInfoWindow(marker, largeInfowindow) {
   bounce(marker);
 
     // Check to make sure the infowindow is not already opened on this marker.
-    if (infowindow.marker != marker) {
-        infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '<div>');
+    if (largeInfowindow.marker != marker) {
+        largeInfowindow.marker = marker;
+        largeInfowindow.setContent('<div>' + marker.title + '<div>');
 
         // Make sure the marker property is cleared if the infowindow is closed.
-        infowindow.addListener('closeclick', function() {
-            infowindow.setMarker(null);
+        largeInfowindow.addListener('closeclick', function() {
+            largeInfowindow.setMarker(null);
         });
-
+        fetchArticle(marker);
         // Open the infowindow on the correct marker.
-        infowindow.open(map, marker);
+        largeInfowindow.open(map, marker);
 
     }
 }
@@ -212,6 +212,42 @@ function bounce(marker) {
     setTimeout(function() {
         marker.setAnimation(null);
     }, 500);
+}
+
+function fetchArticle(marker){
+    var wikiurl = 'https://en.wikipedia.org/w/api.php';
+    wikiurl += '?' + $.param({
+        'format': 'json',
+        'action': 'query',
+        'prop': 'revisions',
+        'titles': marker.title,
+        'rvprop': 'content',
+        'rvsection' : '0',
+        'rvparse' : '1',
+        'callback': 'wikiCallback'
+    });
+
+    var wikiRequestTimeout = setTimeout(function(){
+        alert("cannot get wiki information!");
+    },2000);
+
+    $.ajax({
+        url: wikiurl,
+        dataType: "jsonp",
+        crossDomain: true,
+        success: function(response){
+            var obj;
+            var pages = response['query']['pages'];
+            for(var f in pages)
+            {
+                obj = f;
+                break;
+            }
+            var result = response['query']['pages'][obj]['revisions']['0']['*'];
+            largeInfowindow.setContent(result);
+            clearTimeout(wikiRequestTimeout);
+        }
+    });
 }
 
 
