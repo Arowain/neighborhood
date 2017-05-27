@@ -4,38 +4,38 @@ var markers = [];
 
 // My locations
 var locations = [{
-        title: 'Hardees',
+        title: 'McDonalds',
         location: {
-            lat: 24.785343,
-            lng: 46.613465
+            lat: 24.753636,
+            lng: 46.584185
         }
     },
     {
-        title: 'Ghada Al Ibrahim Grand Mosque',
+        title: 'Jarir Bookstore',
         location: {
-            lat: 24.786278,
-            lng: 46.611716
+            lat: 24.751849,
+            lng: 46.583891
         }
     },
     {
-        title: 'Fuel Stations',
+        title: 'SACO',
         location: {
-            lat: 24.787905,
-            lng: 46.615439
+            lat: 24.753533,
+            lng: 46.585035
         }
     },
     {
-        title: 'Krispy Kreme',
+        title: 'Boardwalk',
         location: {
-            lat: 24.785107,
-            lng: 46.613703
+            lat: 24.752973,
+            lng: 46.583909
         }
     },
     {
-        title: 'Jotun Multicolor Center',
+        title: 'Starbucks',
         location: {
-            lat: 24.787010,
-            lng: 46.613737
+            lat: 24.752047,
+            lng: 46.583941
         }
     }
 
@@ -198,7 +198,7 @@ function populateInfoWindow(marker, largeInfowindow) {
 
         // Make sure the marker property is cleared if the infowindow is closed.
         largeInfowindow.addListener('closeclick', function() {
-            largeInfowindow.setMarker(null);
+            
         });
         fetchArticle(marker);
         // Open the infowindow on the correct marker.
