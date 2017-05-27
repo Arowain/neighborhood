@@ -12,3 +12,4 @@ Note: to run the app you should first set up a local server, you can run it by u
 
 - Python 2:
     python -m SimpleHTTPServer 8080
+

@@ -244,6 +244,8 @@ function fetchArticle(marker){
                 break;
             }
             var result = response['query']['pages'][obj]['revisions']['0']['*'];
+            var patttern = "/wiki/";
+            wikiurl.replace(patttern, "https://en.wikipedia.org/wiki/");
             largeInfowindow.setContent(result);
             clearTimeout(wikiRequestTimeout);
         }
